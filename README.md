@@ -65,7 +65,6 @@ df1['Order ID'].value_counts()
 <img width="217" height="542" alt="image" src="https://github.com/user-attachments/assets/2f99322b-458a-4979-99c3-6631ec569d32" />
 
 ```py
-
 df1.query('`Order ID` == "CA-2018-100111"')
 ```
 <img width="1718" height="745" alt="image" src="https://github.com/user-attachments/assets/c031a820-b77f-4635-8444-f87eddf46e5a" />
@@ -85,6 +84,7 @@ df1['Ship Mode'].unique()
 ```
 
 <img width="701" height="65" alt="image" src="https://github.com/user-attachments/assets/7dcc2329-762d-4054-b316-26bf4f40d554" />
+
 ```py
 import matplotlib.pyplot as plt
 df1['Ship Mode'].value_counts().plot(kind='bar',figsize=(8,5),color='pink')
@@ -97,20 +97,22 @@ plt.show()
 ```
 
 <img width="530" height="506" alt="image" src="https://github.com/user-attachments/assets/b14ca4cc-40ec-4c6c-a741-2166861def21" />
+
 ```py
 df1.info()
 ```
 
 <img width="790" height="489" alt="image" src="https://github.com/user-attachments/assets/20463cb2-f50b-4556-a97b-a2767cfe7574" />
+
 ```py
 df1['Customer ID'].value_counts().head(1)
 ```
 
 <img width="169" height="150" alt="image" src="https://github.com/user-attachments/assets/3078f4ad-f9d8-4699-95d5-4d73f4d4d085" />
+
 ```py
 df1.query('`Customer Name` == "Seth Vernon"')['Ship Mode'].value_counts().plot(kind='bar')
 ```
-
 <img width="556" height="523" alt="image" src="https://github.com/user-attachments/assets/61b5d8ec-b7a7-496a-8376-4a587a322f62" />
 
 # RESULT
