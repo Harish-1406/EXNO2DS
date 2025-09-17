@@ -120,3 +120,5 @@ df1.query('`Customer Name` == "Seth Vernon"')['Ship Mode'].value_counts().plot(k
 # RESULT
 Thus, the Exploratory Data Analysis on the given data set was performed successfully.
 
+# SUMMARY
+
