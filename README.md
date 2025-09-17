@@ -34,18 +34,23 @@ df
 ```py
 df.info()
 ```
+
 <img width="415" height="488" alt="image" src="https://github.com/user-attachments/assets/3c795ac4-8090-4951-8379-557fe993fc94" />
+
 ```py
 df.describe()
 ```
 <img width="460" height="338" alt="image" src="https://github.com/user-attachments/assets/881b3e32-94e1-4102-b4e6-1598b34ce22d" />
+
 ```py
 df.shape
 ```
 <img width="131" height="42" alt="image" src="https://github.com/user-attachments/assets/37399d7f-ceb3-4381-9a36-32257087616e" />
+
 ```py
 df.isnull().sum()
 ```
+
 ```py
 df1=df.copy()
 df1['Order Date']  = pd.to_datetime(df1['Order Date'],format = "%d/%m/%Y")
@@ -53,19 +58,23 @@ df1['Ship Date'] = pd.to_datetime(df1['Ship Date'],format= "%d/%m/%Y")
 df.info()
 ```
 <img width="392" height="495" alt="image" src="https://github.com/user-attachments/assets/4ef892b8-c48b-4009-8935-d09bcab1b136" />
+
 ```py
 df1['Order ID'].value_counts()
 ```
 <img width="217" height="542" alt="image" src="https://github.com/user-attachments/assets/2f99322b-458a-4979-99c3-6631ec569d32" />
+
 ```py
 
 df1.query('`Order ID` == "CA-2018-100111"')
 ```
 <img width="1718" height="745" alt="image" src="https://github.com/user-attachments/assets/c031a820-b77f-4635-8444-f87eddf46e5a" />
+
 ```py
 df1.query("`Order ID` == 'CA-2018-157987'")
 ```
 <img width="1733" height="657" alt="image" src="https://github.com/user-attachments/assets/801b250a-3f96-4b18-b192-9567c155eb95" />
+
 ```py
 df1.head()
 ```
