@@ -57,6 +57,7 @@ df1['Order Date']  = pd.to_datetime(df1['Order Date'],format = "%d/%m/%Y")
 df1['Ship Date'] = pd.to_datetime(df1['Ship Date'],format= "%d/%m/%Y")
 df.info()
 ```
+
 <img width="392" height="495" alt="image" src="https://github.com/user-attachments/assets/4ef892b8-c48b-4009-8935-d09bcab1b136" />
 
 ```py
