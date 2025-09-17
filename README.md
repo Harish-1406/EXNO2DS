@@ -80,6 +80,7 @@ df1.head()
 ```
 
 <img width="1710" height="383" alt="image" src="https://github.com/user-attachments/assets/b15c35c4-e405-4ab9-976b-03b873f6c70d" />
+
 ```py
 df1['Ship Mode'].unique()
 ```
