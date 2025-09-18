@@ -118,18 +118,21 @@ sns.scatterplot(x=df['Age'],y=df['Fare'])
 ```py
 plt=sns.boxplot(x='Pclass',y='Age',hue='Gender',data=df)
 ```
+<img width="562" height="432" alt="image" src="https://github.com/user-attachments/assets/d6f4b955-ce31-42a1-81fb-1eec4153ce40" />
 
 
 ```py
 sns.catplot(x='Pclass',y='Age',hue='Gender',col='Survived',kind='box',data=df)
 ```
 
+<img width="1089" height="490" alt="image" src="https://github.com/user-attachments/assets/5b9c299b-9419-4e02-8489-d787106aa99b" />
 
 ```py
 corr=df.corr(numeric_only=True)
 sns.heatmap(corr,annot=True)
 ```
 
+<img width="527" height="418" alt="image" src="https://github.com/user-attachments/assets/b3d00009-1f66-458f-9647-fe17afe0f356" />
 
 
 ```py
@@ -137,7 +140,8 @@ corr=df.select_dtypes(include=np.number).corr()
 sns.heatmap(corr)
 ```
 
-![Uploading image.png…]()
+<img width="527" height="418" alt="image" src="https://github.com/user-attachments/assets/aa867a40-12e4-4158-b85c-f1fa087b1b50" />
+
 
 
 # RESULT
