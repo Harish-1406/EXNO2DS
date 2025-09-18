@@ -23,99 +23,122 @@ STEP 7: Use cross tabulation method to quantitatively analyze the relationship b
 STEP 8: Use heatmap method of representation to show relationships between two variables, one plotted on each axis.
 
 ## CODING AND OUTPUT
-
 ```py
-import pandas as pd
-df=pd.read_csv("supermarket.csv")
+import pandas as pd 
+import numpy as np 
+import matplotlib.pyplot as plt 
+import seaborn as sns 
+
+df = pd.read_csv("titanic_dataset.csv")
 df
 ```
-<img width="1699" height="867" alt="image" src="https://github.com/user-attachments/assets/01ea8a21-6f5f-4ba5-8097-6369a22a5ea5" />
+
+<img width="1333" height="455" alt="image" src="https://github.com/user-attachments/assets/d9d41a2a-ab0e-4154-b90a-8acb391a362d" />
 
 ```py
 df.info()
 ```
 
-<img width="415" height="488" alt="image" src="https://github.com/user-attachments/assets/3c795ac4-8090-4951-8379-557fe993fc94" />
+<img width="379" height="383" alt="image" src="https://github.com/user-attachments/assets/50916edc-770d-43ea-90b4-940035dd97cb" />
 
 ```py
 df.describe()
 ```
-<img width="460" height="338" alt="image" src="https://github.com/user-attachments/assets/881b3e32-94e1-4102-b4e6-1598b34ce22d" />
+
+<img width="826" height="332" alt="image" src="https://github.com/user-attachments/assets/e1fc20b6-c026-4c09-bab9-34e97b345260" />
+
+```py
+df.dtypes
+```
+
+<img width="215" height="466" alt="image" src="https://github.com/user-attachments/assets/547044bc-d72f-42ae-8959-a5eec2ad593d" />
 
 ```py
 df.shape
 ```
-<img width="131" height="42" alt="image" src="https://github.com/user-attachments/assets/37399d7f-ceb3-4381-9a36-32257087616e" />
+
+<img width="96" height="24" alt="image" src="https://github.com/user-attachments/assets/a8879a48-4a21-4ece-a1ea-7178116ee0bc" />
 
 ```py
-df.isnull().sum()
+df.value_counts()
 ```
+
+<img width="1364" height="504" alt="image" src="https://github.com/user-attachments/assets/30c70ad3-bd32-4c95-a12f-3047d52b71b0" />
 
 ```py
-df1=df.copy()
-df1['Order Date']  = pd.to_datetime(df1['Order Date'],format = "%d/%m/%Y")
-df1['Ship Date'] = pd.to_datetime(df1['Ship Date'],format= "%d/%m/%Y")
-df.info()
+df['Age'].value_counts()
 ```
 
-<img width="392" height="495" alt="image" src="https://github.com/user-attachments/assets/4ef892b8-c48b-4009-8935-d09bcab1b136" />
+<img width="164" height="544" alt="image" src="https://github.com/user-attachments/assets/b9a6f054-0e76-498f-aa48-b356d36e054d" />
 
 ```py
-df1['Order ID'].value_counts()
+df.set_index("PassengerId",inplace=True)
+df
 ```
-<img width="217" height="542" alt="image" src="https://github.com/user-attachments/assets/2f99322b-458a-4979-99c3-6631ec569d32" />
+
 
 ```py
-df1.query('`Order ID` == "CA-2018-100111"')
+df.nunique()
 ```
-<img width="1718" height="745" alt="image" src="https://github.com/user-attachments/assets/c031a820-b77f-4635-8444-f87eddf46e5a" />
+
+<img width="150" height="488" alt="image" src="https://github.com/user-attachments/assets/0fe51310-12a1-4054-a764-ad658f59d30c" />
 
 ```py
-df1.query("`Order ID` == 'CA-2018-157987'")
+sns.countplot(data=df,x='Age')
 ```
-<img width="1733" height="657" alt="image" src="https://github.com/user-attachments/assets/801b250a-3f96-4b18-b192-9567c155eb95" />
+
+<img width="575" height="432" alt="image" src="https://github.com/user-attachments/assets/33a0af74-a1af-4653-a935-ff3f32a8350b" />
 
 ```py
-df1.head()
+df.rename(columns={'Sex':'Gender'},inplace=True)
+df
 ```
-
-<img width="1710" height="383" alt="image" src="https://github.com/user-attachments/assets/b15c35c4-e405-4ab9-976b-03b873f6c70d" />
+<img width="1245" height="507" alt="image" src="https://github.com/user-attachments/assets/df8ed5bf-59e1-413a-930f-5dfbbe26e41b" />
 
 ```py
-df1['Ship Mode'].unique()
+sns.catplot(x='Gender',col='Survived',kind="count",data=df,height=5,aspect=1)
 ```
 
-<img width="701" height="65" alt="image" src="https://github.com/user-attachments/assets/7dcc2329-762d-4054-b316-26bf4f40d554" />
+<img width="1008" height="490" alt="image" src="https://github.com/user-attachments/assets/c4e4b9d4-9d3a-441a-be44-09023656aeb7" />
 
 ```py
-import matplotlib.pyplot as plt
-df1['Ship Mode'].value_counts().plot(kind='bar',figsize=(8,5),color='pink')
-plt.title("Different Ship Mode")
-plt.xlabel('Ship Mode')
-plt.ylabel('Count')
-plt.xticks(rotation=45)
-plt.tight_layout()
-plt.show()
+df.boxplot(column='Age',by='Survived')
+df
 ```
 
-<img width="530" height="506" alt="image" src="https://github.com/user-attachments/assets/b14ca4cc-40ec-4c6c-a741-2166861def21" />
+<img width="1251" height="501" alt="image" src="https://github.com/user-attachments/assets/d380f0f1-fbaa-4345-b47d-d7c909472116" />
+
+<img width="559" height="461" alt="image" src="https://github.com/user-attachments/assets/8a6163d7-1238-438f-a811-10a9e6adb2c6" />
 
 ```py
-df1.info()
+sns.scatterplot(x=df['Age'],y=df['Fare'])
 ```
-
-<img width="790" height="489" alt="image" src="https://github.com/user-attachments/assets/20463cb2-f50b-4556-a97b-a2767cfe7574" />
+<img width="571" height="432" alt="image" src="https://github.com/user-attachments/assets/8083219b-159d-4bc3-bdc7-6443de5cfacf" />
 
 ```py
-df1['Customer ID'].value_counts().head(1)
+plt=sns.boxplot(x='Pclass',y='Age',hue='Gender',data=df)
 ```
 
-<img width="169" height="150" alt="image" src="https://github.com/user-attachments/assets/3078f4ad-f9d8-4699-95d5-4d73f4d4d085" />
 
 ```py
-df1.query('`Customer Name` == "Seth Vernon"')['Ship Mode'].value_counts().plot(kind='bar')
+sns.catplot(x='Pclass',y='Age',hue='Gender',col='Survived',kind='box',data=df)
 ```
-<img width="556" height="523" alt="image" src="https://github.com/user-attachments/assets/61b5d8ec-b7a7-496a-8376-4a587a322f62" />
+
+
+```py
+corr=df.corr(numeric_only=True)
+sns.heatmap(corr,annot=True)
+```
+
+
+
+```py
+corr=df.select_dtypes(include=np.number).corr()
+sns.heatmap(corr)
+```
+
+![Uploading image.png…]()
+
 
 # RESULT
 Thus, the Exploratory Data Analysis on the given data set was performed successfully.
